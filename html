@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Company Profile</title>
+
+    <!-- CSS Langsung -->
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 2px solid #ddd;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        header nav a:hover {
+            color: #007BFF;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #f5f5f5;
+        }
+
+        .hero h1 {
+            margin-bottom: 10px;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .photo-section img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* About Section */
+        .about-section,
+        .vision-section,
+        .headquarter-section,
+        .contact-form-section {
+            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Headquarters */
+        .headquarter-section .locations {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .location {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form-section label {
+            margin: 10px 0 5px;
+        }
+
+        .contact-form-section input,
+        .contact-form-section textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form-section button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .contact-form-section button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #ddd;
+            background-color: #f9f9f9;
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .headquarter-section .locations {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">😊 Company</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#vision">Vision & Mission</a>
+            <a href="#headquarters">Our HQ</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1 id="welcomeText">Hi, Welcome to our Website</h1>
+        <p>A modern website for your company</p>
+    </section>
+
+    <!-- Photo Section -->
+    <section class="photo-section">
+        <h2>Our Team</h2>
+        <img src="https://via.placeholder.com/600x300" alt="Team Photo" />
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <h2>About Us</h2>
+        <p>We are a forward-thinking company dedicated to providing top-notch services to our clients worldwide.</p>
+    </section>
+
+    <!-- Vision & Mission Section -->
+    <section class="vision-section" id="vision">
+        <h2>Vision & Mission</h2>
+        <p><strong>Vision:</strong> To be the leading innovator in our industry.</p>
+        <p><strong>Mission:</strong> Deliver excellence and innovation through our products and services.</p>
+    </section>
+
+    <!-- Our Headquarter -->
+    <section class="headquarter-section" id="headquarters">
+        <h2>Our Headquarters</h2>
+        <div class="locations">
+            <div class="location">Jakarta</div>
+            <div class="location">Bandung</div>
+            <div class="location">Surabaya</div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section" id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" required />
+
+            <label>Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label>Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}" />
+
+            <label>Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Your Company Name | All Rights Reserved.
+    </footer>
+
+    <!-- JS Langsung -->
+    <script>
+        // Dinamis isi nama pengguna
+        window.onload = function() {
+            let userName = prompt("Please enter your name:", "Guest");
+            if (userName == null || userName.trim() === "") {
+                userName = "Guest";
+            }
+            document.getElementById('welcomeText').textContent = `Hi, ${userName}! Welcome to our Website`;
+        };
+
+        // Validasi Formulir
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // stop form dari submit default
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Validasi sederhana
+            if (!name || !email || !phone || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Validasi email
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Validasi nomor telepon
+            const phonePattern = /^[0-9]{10,15}$/;
+            if (!phone.match(phonePattern)) {
+                alert('Please enter a valid phone number (10-15 digits).');
+                return;
+            }
+
+            // Semua valid → submit
+            alert('Thank you for your message, ' + name + '!');
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+
+</body>
+</html>
